@@ -1,0 +1,49 @@
+[System]
+Name='fuzzy_fisout_40'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=11
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='DifAngular'
+Range=[-45 45]
+NumMFs=3
+MF1='Negative':'trimf',[-82.4882022327017 -33.3019100210285 -1.83097471236044]
+MF2='Stable':'trimf',[-37.5 0 37.5]
+MF3='Positive':'trimf',[-13.8038565411834 -1.11246049250241 23.1479750783286]
+
+[Input2]
+Name='Speed'
+Range=[-90 90]
+NumMFs=3
+MF1='Negative':'trimf',[-59.0083006467838 -27.2238470589013 52.093217518474]
+MF2='Zero':'trimf',[-75 0 75]
+MF3='Positive':'trimf',[14.0174419617845 22.078028797851 71.6658328233485]
+
+[Output1]
+Name='flapAngle'
+Range=[-45 45]
+NumMFs=3
+MF1='function1':'linear',[42.9637897070204 -5.54126697575385 29.6188961099081]
+MF2='function2':'linear',[39.2835530831296 -1.77765600472609 -19.2904062303572]
+MF3='function3':'linear',[16.5064402797965 -32.3308930897824 -32.7121517936711]
+
+[Rules]
+2 0, 3 (1) : 1
+3 2, 2 (1) : 1
+3 0, 1 (1) : 1
+2 3, 1 (1) : 1
+1 1, 2 (1) : 1
+3 1, 2 (1) : 1
+2 2, 1 (1) : 1
+3 3, 1 (1) : 1
+1 2, 2 (1) : 1
+2 1, 2 (1) : 1
+0 2, 1 (1) : 1

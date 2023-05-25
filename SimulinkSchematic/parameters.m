@@ -6,7 +6,7 @@ clc
 M1=0;% Torque
 M2=0;%Anti torque
 
-Inercia =0.0095;%Moment of inercia
+Inercia =0.0067;%Moment of inercia
 
 d = 0.02; % Vertical distance from gravity center to flap
 L = 0.5; % UAV diameter
@@ -17,15 +17,17 @@ m = 1.460;%Mass
 g=9.80665;%Gravity
 
 %% PID values
-kp_angle=6;
+kp_angle=2.55;
+kp=15.8;
+ki=0.35;
+kd=0;
 
-kp=23.0500;
-ki=768.3330;
-kd=0.1537;
 
 %% Intial values
 v0=0; % Angular velocity 
-fi0=30; % Angle
+fi0=45; % Angle
 
 %% load fuzzy controller 
-ControlFuzzy=readfis('ControlFuzzy');
+ControlFuzzy=readfis('ControlFuzzyManual.fis');
+ControlFuzzyMam=readfis('ControlGeneticFuzzyMamdani.fis');
+ControlFuzzySug=readfis('ControlGeneticFuzzySugeno.fis');

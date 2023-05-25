@@ -1,0 +1,45 @@
+[System]
+Name='ControlFuzzyNuevo3'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='DifAngular'
+Range=[-45 45]
+NumMFs=3
+MF1='Negative':'trimf',[-93.78 -45 0]
+MF2='Stable':'trimf',[-15 0 15]
+MF3='Positive':'trimf',[0 45 94.83]
+
+[Input2]
+Name='Speed'
+Range=[-90 90]
+NumMFs=3
+MF1='Negative':'trimf',[-162 -70.1087893742564 0]
+MF2='Zero':'trimf',[-6 0 6]
+MF3='Positive':'trimf',[0 70.1087893742564 162]
+
+[Output1]
+Name='FlapAngle'
+Range=[-45 45]
+NumMFs=3
+MF1='UnClock':'trimf',[-53.8827858522229 -29.5114815667778 -0.5]
+MF2='Zero':'trimf',[-1 0 1]
+MF3='Clock':'trimf',[0.5 29.1016017297074 53.8827858522229]
+
+[Rules]
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 1 (1) : 1
+1 0, 1 (1) : 1
+3 0, 3 (1) : 1
+1 1, 3 (1) : 1
+3 3, 1 (1) : 1

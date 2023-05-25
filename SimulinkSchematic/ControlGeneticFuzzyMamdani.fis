@@ -1,0 +1,50 @@
+[System]
+Name='fuzzy_fisout_19'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='DifAngular'
+Range=[-45 45]
+NumMFs=3
+MF1='Negative':'trimf',[-86.6214121044836 -43.8224487304687 0.305169224739075]
+MF2='Stable':'trimf',[-1.71782733919501 0 15.6905409097671]
+MF3='Positive':'trimf',[0 45 94.83]
+
+[Input2]
+Name='Speed'
+Range=[-90 90]
+NumMFs=3
+MF1='Negative':'trimf',[-161.999999985099 -70.1359796720984 3.814697265625e-05]
+MF2='Zero':'trimf',[-5.987548828125 0 0.269047862318445]
+MF3='Positive':'trimf',[6.17816162109375 51.4940289718246 149.130663680932]
+
+[Output1]
+Name='FlapAngle'
+Range=[-45 45]
+NumMFs=3
+MF1='UnClock':'trimf',[-53.8827837213569 -44.6523775756359 -25.9907989501953]
+MF2='Zero':'trimf',[-0.513730480651397 0 4.65828920520101]
+MF3='Clock':'trimf',[26.1250214576721 31.5895756895156 62.2287502160786]
+
+[Rules]
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 1 (1) : 1
+1 0, 1 (1) : 1
+3 0, 3 (1) : 1
+1 1, 3 (1) : 1
+3 3, 1 (1) : 1
+3 1, 2 (1) : 1
+0 1, 3 (1) : 1
+0 3, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
